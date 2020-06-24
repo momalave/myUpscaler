@@ -29,7 +29,7 @@ int main(int argc, char* argv[]){
         show_usage(argv[0]);
         return 1;
     }
-    vector <std::string> sources;
+    vector <string> sources;
     string inputDir, outputDir;
     for (int i = 1; i < argc; ++i) {
         std::string arg = argv[i];
@@ -40,16 +40,16 @@ int main(int argc, char* argv[]){
             if (i + 1 < argc) { // Make sure we aren't at the end of argv!
                 inputDir = argv[++i]; // Increment 'i' so we don't get the argument as the next argv[i].
             } else { // Uh-oh, there was no argument to the destination option.
-                  cerr << "--input-file option requires one argument." << std::endl;
+                  cerr << "--input-file option requires one argument." << endl;
                 return 1;
-            }  
+            }
         } else if (arg == "--output-file") {
             if (i + 1 < argc) { // Make sure we aren't at the end of argv!
                 outputDir = argv[++i]; // Increment 'i' so we don't get the argument as the next argv[i].
             } else { // Uh-oh, there was no argument to the destination option.
-                  cerr << "--output-file: option requires one argument." << std::endl;
+                  cerr << "--output-file: option requires one argument." << endl;
                 return 1;
-            }  
+            }
         } else {
             sources.push_back(argv[i]);
         }
@@ -85,13 +85,15 @@ int main(int argc, char* argv[]){
   double fps = cap.get(CAP_PROP_FPS);
   int frame_width = cap.get(CAP_PROP_FRAME_WIDTH);
   int frame_height = cap.get(CAP_PROP_FRAME_HEIGHT);
-  numFrames = fps;
+  //numFrames = fps;
 
   // Create a VideoWriter object for 4x upSampler output.mp4
   VideoWriter video;
   //Use the AV_CODEC_ID_H264 , 0x21 to save using H.264
   //Source: https://stackoverflow.com/questions/34024041/writing-x264-from-opencv-3-with-ffmpeg-on-linux
   video.open(outputDir, 0x21, fps, Size(scalefactor*frame_width,scalefactor*frame_height), true);
+
+  cout << "----- Processing Video Frames  -----" << endl ;
 
   // Capture the first frame
   cap >> image;
@@ -123,36 +125,27 @@ int main(int argc, char* argv[]){
 
     // Display and status bar
     progress = (float)curFrame/numFrames;
-    std::cout << "[";
+    cout << "[";
     int pos = barWidth * progress;
     for (int i = 0; i < barWidth; ++i) {
-      if (i < pos) std::cout << "=";
-      else if (i == pos) std::cout << ">";
-      else std::cout << " ";
+      if (i < pos) cout << "=";
+      else if (i == pos) cout << ">";
+      else cout << " ";
     }
-    std::cout << "] " << int(progress * 100.0) << "% (" << curFrame << "/" << numFrames << ")" << "\r";
-    std::cout.flush();
-
-    //cout << "hellooooo" << CV_MAJOR_VERSION << "." << CV_MINOR_VERSION << endl;
+    cout << "] " << int(progress * 100.0) << "% \t(" << curFrame << "/" << numFrames << ")    ";
 
     // Run inference on the model
-    //cout << "Reconstructing Image..." << endl;
-
     auto start = chrono::steady_clock::now();
     m.run(input, prediction);
     auto end = chrono::steady_clock::now();
 
-    //cout << "Elapsed time in milliseconds : "
-    //<< chrono::duration_cast<chrono::milliseconds>(end - start).count()
-    //<< " ms" << endl;
-
     // Used for calculating the mean and std of the inference time
     dur = chrono::duration_cast<chrono::milliseconds>(end - start).count();
-    //cout << dur << " ms" << endl;
     sumTime += dur;
     sumSqTime += pow(dur,2.0);
 
-    cout << dur << " ms" << endl;
+    cout << dur << " ms\r" << endl;
+    //cout.flush();
 
     // Get tensor with predictions
     predictions = prediction.Tensor::get_data<float>();
