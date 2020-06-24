@@ -1,3 +1,0 @@
-/home/ubuntu/sony_project/other_cppflow/cppflow/examples/myScaler/build/CMakeFiles/rebuild_cache.dir
-/home/ubuntu/sony_project/other_cppflow/cppflow/examples/myScaler/build/CMakeFiles/edit_cache.dir
-/home/ubuntu/sony_project/other_cppflow/cppflow/examples/myScaler/build/CMakeFiles/example.dir

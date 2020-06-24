@@ -1,0 +1,10 @@
+# Don't track content of these folders
+main/imgs/
+main/videos/
+main/upscaler_model/
+main/build
+
+# Compiled source #
+###################
+*.png
+*.mp4
