@@ -3,6 +3,7 @@
 C++ implementation of a 4x upscaler
 
 Command line options:
+
 --input-file: Path to the input video file that will get processed
 --output-file: Path to the output video file that will get created
 
