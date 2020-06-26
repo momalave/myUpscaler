@@ -1,7 +1,3 @@
-//
-// Created by sergio on 12/05/19.
-//
-
 #ifndef CPPFLOW_MODEL_H
 #define CPPFLOW_MODEL_H
 
