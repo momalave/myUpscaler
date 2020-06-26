@@ -1,7 +1,6 @@
 # Upscaling Model Implementation
 
-
-
+C++ implementation of a 4x upscaler
 
 ## CppFlow
 Run TensorFlow models in c++ without Bazel, without TensorFlow installation and without compiling Tensorflow.
