@@ -19,7 +19,7 @@ in a folder called `libtensorflow` in the home directory.
 Afterwards, you can run the examples:
 
 ```sh
-git clone https://github.com/momalave/myScaler.git
+git clone git@github.com:momalave/myScaler.git
 cd myScaler/main
 mkdir build
 cd build
