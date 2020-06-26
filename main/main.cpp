@@ -44,8 +44,6 @@ void drawStatus(int curFrame, int numFrames){
     cout << "] " << int(progress * 100.0) << "% \t(" << curFrame << "/" << numFrames << ")    ";       
 }
 
-
-
 int main(int argc, char* argv[]){
     //Argument handling
     if (argc < 3) {
@@ -77,7 +75,6 @@ int main(int argc, char* argv[]){
             sources.push_back(argv[i]);
         }
     }
-
 
     // Decalre variables  
     int scalefactor = 4;   // based on the trained 4x upSampler model
@@ -115,7 +112,6 @@ int main(int argc, char* argv[]){
     //Source: https://stackoverflow.com/questions/34024041/writing-x264-from-opencv-3-with-ffmpeg-on-linux
     video.open(outputDir, 0x21, fps, Size(scalefactor*frame_width,scalefactor*frame_height), true);
 
-  
     cout << "Processing Video Frames..." << endl ;  
     // Capture the first frame
     cap >> image;
@@ -184,8 +180,6 @@ int main(int argc, char* argv[]){
         // Exit if current frame is the last
         if (curFrame == numFrames) {break;}
     }
-    
-    //cout << "\nProcessing Complete..." << endl ;
     
     // Release the videocapture and videowriter objects
     cap.release();
