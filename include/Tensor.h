@@ -1,7 +1,3 @@
-//
-// Created by sergio on 13/05/19.
-//
-
 #ifndef CPPFLOW_TENSOR_H
 #define CPPFLOW_TENSOR_H
 
