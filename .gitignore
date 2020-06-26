@@ -1,8 +1,7 @@
 # Don't track content of these folders
-myScaler/imgs/
-myScaler/videos/
-myScaler/upscaler_model/
-myScaler/build
+main/imgs/
+main/videos/
+main/build
 
 # Compiled source #
 ###################
