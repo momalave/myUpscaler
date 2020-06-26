@@ -1,7 +1,3 @@
-//
-// Created by sergio on 13/05/19.
-//
-
 #include "../include/Tensor.h"
 
 #include <utility>
