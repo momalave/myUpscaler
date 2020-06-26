@@ -1,4 +1,4 @@
-# Upscaling Model Implementation
+# Video Upscaling Model
 
 C++ implementation of a 4x upscaler
 
