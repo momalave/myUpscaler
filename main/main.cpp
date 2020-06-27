@@ -31,7 +31,7 @@ void clip_by_value(Mat& mat, float lowerBound, float upperBound) {
 }
 
 // Display and status bar
-void drawStatus(int curFrame, int numFrames){
+void drawStatus(int curFrame, int numFrames, float dur){
     int barWidth = 70;
     float progress = (float)curFrame/numFrames;
     int pos = barWidth * progress;
@@ -41,7 +41,9 @@ void drawStatus(int curFrame, int numFrames){
         else if (i == pos) cout << ">";
         else cout << " ";
     }
-    cout << "] " << int(progress * 100.0) << "% \t(" << curFrame << "/" << numFrames << ")    ";       
+    cout << "] " << int(progress * 100.0) << "% \t(" << curFrame << "/" << numFrames << ")    ";
+    cout << dur << " ms\r";// << endl;    
+    cout.flush();
 }
 
 int main(int argc, char* argv[]){
@@ -97,14 +99,12 @@ int main(int argc, char* argv[]){
         return -1;
     }
   
-    // Get number of total frames
+    // Get frame paraments
     numFrames = int(cap.get(CAP_PROP_FRAME_COUNT));
-
-    // Create a VideoWriter object
     double fps = cap.get(CAP_PROP_FPS);  
     int frame_width = cap.get(CAP_PROP_FRAME_WIDTH);
     int frame_height = cap.get(CAP_PROP_FRAME_HEIGHT);
-    //numFrames = fps;
+    //numFrames = fps; //used for processing 1 second
 
     // Create a VideoWriter object for 4x upSampler output
     VideoWriter video;
@@ -140,9 +140,6 @@ int main(int argc, char* argv[]){
 
         // Feed data to input tensor    
         input.set_data(img_data, {1, rows, cols, channels});
-    
-        // Display and status bar 
-        drawStatus(curFrame, numFrames);
         
         // Run inference on the model
         auto start = chrono::steady_clock::now();
@@ -154,13 +151,12 @@ int main(int argc, char* argv[]){
         sumTime += dur;
         sumSqTime += pow(dur,2.0);
 
-        cout << dur << " ms\r";// << endl;    
-        cout.flush();
+        // Display status bar 
+        drawStatus(curFrame, numFrames, dur);
 
         // Get tensor with predictions    
         predictions = prediction.Tensor::get_data<float>();
-        
-        // unflatten
+        // Unflatten processed_image
         processed_image = Mat(scalefactor*rows, scalefactor*cols, image.type(), predictions.data());    
     
         // Postprocess output of the model
