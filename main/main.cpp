@@ -46,14 +46,32 @@ void drawStatus(int curFrame, int numFrames, float dur){
     cout.flush();
 }
 
+// Add audio to upsampled video
+void processAudio(string inputDir, string outputDir){ 
+    size_t extPos = outputDir.find_last_of(".");
+    string tempDir = outputDir.substr(0,extPos) + "_temp.mp4";
+    tempDir = tempDir.substr(extPos);
+    
+    //add audio using ffmpeg library
+    system(("ffmpeg -y -i " + inputDir + " -i " + outputDir + 
+            " -c copy -map 0:a:0 -map 1:v:0 -shortest -c copy -flags global_header -loglevel fatal " + tempDir).c_str());
+        
+    // replace output upsampled video with output of ffmpeg
+    system(("rm " + outputDir).c_str());
+    system(("mv " + tempDir + " " + outputDir).c_str());
+}
+
 int main(int argc, char* argv[]){
     //Argument handling
     if (argc < 3) {
         show_usage(argv[0]);
         return 1;
     }
+    
     vector <string> sources;
     string inputDir, outputDir;
+    int audioFlag = 0;
+    
     for (int i = 1; i < argc; ++i) {
         std::string arg = argv[i];
         if ((arg == "-h") || (arg == "--help")) {
@@ -73,10 +91,18 @@ int main(int argc, char* argv[]){
                   cerr << "--output-file: option requires one argument." << endl;
                 return 1;
             }
+        } else if (arg == "--audio-flag") {
+            if (i + 1 < argc) { // Make sure we aren't at the end of argv!
+                audioFlag = atoi(argv[++i]); // Increment 'i' so we don't get the argument as the next argv[i].
+            } else { // Uh-oh, there was no argument to the destination option.
+                  cerr << "--output-file: option requires one argument." << endl;
+                return 1;
+            }
         } else {
             sources.push_back(argv[i]);
         }
     }
+    
 
     // Decalre variables  
     int scalefactor = 4;   // based on the trained 4x upSampler model
@@ -104,7 +130,7 @@ int main(int argc, char* argv[]){
     double fps = cap.get(CAP_PROP_FPS);  
     int frame_width = cap.get(CAP_PROP_FRAME_WIDTH);
     int frame_height = cap.get(CAP_PROP_FRAME_HEIGHT);
-    //numFrames = fps; //used for processing 1 second
+    numFrames = fps; //used for processing 1 second
 
     // Create a VideoWriter object for 4x upSampler output
     VideoWriter video;
@@ -129,7 +155,7 @@ int main(int argc, char* argv[]){
     while(!image.empty()){
         //Get current frame number
         curFrame = int(cap.get(CAP_PROP_POS_FRAMES));
-
+        
         // Convert to CV_32F, 32 bit floating point number    
         image.convertTo(image, CV_32F);
 
@@ -169,7 +195,7 @@ int main(int argc, char* argv[]){
         
         // Write the frame into the output video file
         video.write(processed_image);
-    
+        
         // Obtain next frame
         cap >> image;
     
@@ -181,8 +207,14 @@ int main(int argc, char* argv[]){
     cap.release();
     video.release();
     
+    // if audioFlag == 1, add audio to upsampled video
+    if(audioFlag){
+        cout << "\n\nProcessing audio..." << endl;
+        processAudio(inputDir, outputDir);
+    }
+    
     // Display model inference statistics
-    cout << "\n\n----- Inference Time Statistics ----- " << endl ;
+    cout << "\n----- Inference Time Statistics ----- " << endl ;
     cout << "Total Time: " << sumTime << " ms" << endl ;
     //Calculate the average  
     cout << "Average: " << sumTime/numFrames << " ms" << endl ;
