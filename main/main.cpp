@@ -17,6 +17,7 @@ static void show_usage(std::string name){
               << "\t-h,--help      \tUsage information\n"
               << "\t--input-file   \tPath to the input video file that will get processed\n"
               << "\t--output-file  \tPath to the output video file that will get created\n"
+              << "\t--audio-flag   \tSet to 1 to include audio, default is 0\n"
               << std::endl;
 }
 
@@ -206,7 +207,7 @@ int main(int argc, char* argv[]){
     cap.release();
     video.release();
     
-    // if audioFlag == 1, add audio to upsampled video
+    // if audioFlag == 1, add audio to upscaled video
     if(audioFlag){
         cout << "\n\nProcessing audio..." << endl;
         processAudio(inputDir, outputDir);
