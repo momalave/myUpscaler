@@ -130,7 +130,7 @@ int main(int argc, char* argv[]){
     double fps = cap.get(CAP_PROP_FPS);  
     int frame_width = cap.get(CAP_PROP_FRAME_WIDTH);
     int frame_height = cap.get(CAP_PROP_FRAME_HEIGHT);
-    numFrames = fps; //used for processing 1 second
+    //numFrames = fps; //used for processing 1 second
 
     // Create a VideoWriter object for 4x upSampler output
     VideoWriter video;
