@@ -103,7 +103,6 @@ int main(int argc, char* argv[]){
         }
     }
     
-
     // Decalre variables  
     int scalefactor = 4;   // based on the trained 4x upSampler model
     Mat image, flat, processed_image;
@@ -223,5 +222,3 @@ int main(int argc, char* argv[]){
     cout << "Standard Deviation: " << sqrt((sumSqTime -(pow(sumTime,2.0)/numFrames))/numFrames) << " ms" << endl ;
     return 0;
 }
-
-
