@@ -41,4 +41,4 @@ Run the code using the appropiate arguments:
 
 In this project, the cppFlow library was used to load pre-trained models in C/C++. This was made possible by the work of [serzba](https://github.com/serizba/cppflow) and [dhiegomaga](https://github.com/dhiegomaga/cppflow).
 
-CppFlow enables TensorFlow models to run in c++ without Bazel, without a TensorFlow installation, and without compiling Tensorflow.
+CppFlow enables TensorFlow models to run in C/C++ without Bazel, without a TensorFlow installation, and without compiling Tensorflow.
