@@ -17,7 +17,7 @@ Download TensorFlow C API [here](https://www.tensorflow.org/install/lang_c).
 Install the library system wide by following the tutorial on the Tensorflow page or place the contents of the archive
 in the home directory in a folder called `libtensorflow`. The `CMakeLists.txt` file points to the `libtensorflow` folder in the home directory.
 
-Afterwards, you can run the examples:
+Then, git clone the repository and compile the code using cmake:
 
 ```sh
 git clone https://github.com/momalave/myScaler.git
@@ -26,14 +26,12 @@ mkdir build
 cd build
 cmake ..
 make
-./myScaler
+./myScaler --input-file /path/to/video/input --output-file /path/to/video/out --audio-flag <optional flag to include audio>
 ```
 
 ## CppFlow
 
-https://github.com/serizba/cppflow
-
-https://github.com/dhiegomaga/cppflow
+In this project the cppFlow library was used to load pre-trained models in C/C++. This was made possible by the work of [serzba](https://github.com/serizba/cppflow) and [dhiegomaga](https://github.com/dhiegomaga/cppflow).
 
 Run TensorFlow models in c++ without Bazel, without TensorFlow installation and without compiling Tensorflow.
 
