@@ -17,12 +17,12 @@ Download TensorFlow C API [here](https://www.tensorflow.org/install/lang_c).
 Install the library system wide by following the tutorial on the Tensorflow page or place the contents of the archive
 in the home directory in a folder called `libtensorflow`. The `CMakeLists.txt` file points to the `libtensorflow` folder in the home directory.
 
-Then, git clone the repository:
+First, git clone the repository:
 ```sh
 git clone https://github.com/momalave/myScaler.git
 ```
 
-Compile the code using cmake:
+Then, compile the code using cmake:
 ```
 cd myScaler/main
 mkdir build
@@ -31,7 +31,7 @@ cmake ..
 make
 ```
 
-The run the code using the appropiate arguments: 
+Run the code using the appropiate arguments: 
 ```
 ./myScaler --input-file /path/to/video/input --output-file /path/to/video/out --audio-flag <optional flag to include audio>
 ```
