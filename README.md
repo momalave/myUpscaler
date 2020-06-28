@@ -29,10 +29,8 @@ make
 ./myScaler --input-file /path/to/video/input --output-file /path/to/video/out --audio-flag <optional flag to include audio>
 ```
 
-## CppFlow
+## CppFlow Library
 
 In this project, the cppFlow library was used to load pre-trained models in C/C++. This was made possible by the work of [serzba](https://github.com/serizba/cppflow) and [dhiegomaga](https://github.com/dhiegomaga/cppflow).
 
-Run TensorFlow models in c++ without Bazel, without TensorFlow installation and without compiling Tensorflow.
-
-CppFlow uses Tensorflow C API to run the models, meaning you can use it without installing Tensorflow and without compiling the whole TensorFlow repository with bazel, you just need to download the C API.
+CppFlow enables TensorFlow models to run in c++ without Bazel, without a TensorFlow installation, and without compiling Tensorflow.
