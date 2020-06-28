@@ -7,14 +7,15 @@ Command line options:
 ```sh
 --input-file: Path to the input video file that will get processed
 --output-file: Path to the output video file that will get created
+--audio-flag: set to 1 to include audio, default is 0
 ```
 
 ## Installation Instructions
 
-Since it uses TensorFlow C API you just have to [download it](https://www.tensorflow.org/install/lang_c).  
+Download TensorFlow C API [here](https://www.tensorflow.org/install/lang_c).  
 
-You can either install the library system wide by following the tutorial on the Tensorflow page or you can place the contents of the archive
-in a folder called `libtensorflow` in the home directory.
+Install the library system wide by following the tutorial on the Tensorflow page or place the contents of the archive
+in the home directory in a folder called `libtensorflow`. The `CMakeLists.txt` file points to the `libtensorflow` folder in the home directory.
 
 Afterwards, you can run the examples:
 
