@@ -10,14 +10,15 @@ Command line options:
 --audio-flag: set to 1 to include audio, default is 0
 ```
 
-## Installation Instructions
+## Installation Instructions (Linux)
 
-Download TensorFlow C API [here](https://www.tensorflow.org/install/lang_c).  
+### Dependencies:
 
-Install the library system wide by following the tutorial on the Tensorflow page or place the contents of the archive
-in the home directory in a folder called `libtensorflow`. The `CMakeLists.txt` file points to the `libtensorflow` folder in the home directory.
+Download TensorFlow C API [here](https://www.tensorflow.org/install/lang_c). Install the library system wide by following the tutorial on the Tensorflow page or place the contents of the archive in the home directory in a folder called `libtensorflow`. The `CMakeLists.txt` file points to the `libtensorflow` folder in the home directory.
 
-First, git clone the repository:
+Also, [Tensorflow 2.2](https://www.tensorflow.org/install/pip), [OpenCV 4.4](https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html)
+
+Next, git clone the repository:
 ```sh
 git clone https://github.com/momalave/myScaler.git
 ```
