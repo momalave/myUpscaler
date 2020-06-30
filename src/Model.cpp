@@ -1,14 +1,6 @@
-#include "../include/Model.h"
+// CppFlow Model Library
 
-/*
-Model::Model(){
-    
-    this->graph = NULL;
-    this->session = NULL;
-    this->status = NULL;
-    
-}
-*/
+#include "../include/Model.h"
 
 Model::Model(const std::string& model_path, const std::vector<uint8_t>& config_options) {
     
