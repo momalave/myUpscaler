@@ -16,7 +16,7 @@ void clip_by_value(Mat& mat, float lowerBound, float upperBound){
     merge(matc, mat);   
 }
 
-// Display and status bar
+// Display status bar and inference duration
 void drawStatus(int curFrame, int numFrames, float dur){
     int barWidth = 70;
     float progress = (float)curFrame/numFrames;
