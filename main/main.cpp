@@ -20,7 +20,7 @@ static void show_usage(std::string name){
               << "\t-h,--help      \tUsage information\n"
               << "\t--input-file   \tPath to the input video file that will get processed\n"
               << "\t--output-file  \tPath to the output video file that will get created\n"
-              << "\t--audio-flag   \tSet to 1 to include audio, default is 0\n"
+              << "\t--audio-flag   \tSet to 1 to include audio, default is 0 (audio in input video required)\n"
               << std::endl;
 }
 
