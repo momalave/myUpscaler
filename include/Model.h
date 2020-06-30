@@ -1,4 +1,4 @@
-// CppFlow Model Library
+// CppFlow Library
 
 #ifndef CPPFLOW_MODEL_H
 #define CPPFLOW_MODEL_H
