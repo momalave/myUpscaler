@@ -39,7 +39,7 @@ Run the code using the appropiate arguments:
 
 To update the pre-trained model used for inference, replace the model files in:
 ```sh
-cd myScaler/main/upScaler_model
+myScaler/main/upScaler_model
 ```
 
 ## CppFlow Library
