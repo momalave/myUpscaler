@@ -18,7 +18,7 @@ Download TensorFlow C API [here](https://www.tensorflow.org/install/lang_c). Ins
 
 Additionally, install [Tensorflow 2.2](https://www.tensorflow.org/install/pip), [OpenCV 4.4](https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html), and [FFmpeg](https://ffmpeg.org/download.html) for video/audio processing.
 
-Next, git clone the repository (currently the project is private, if needed, request access at momalave@gmail.com):
+Next, git clone the repository. Currently, the project is private. If access is needed, please send a request to momalave@gmail.com:
 ```sh
 git clone https://github.com/momalave/myScaler.git
 ```
