@@ -1,4 +1,4 @@
-// CppFlow Model Library
+// CppFlow Library
 
 #include "../include/Tensor.h"
 #include <utility>
