@@ -7,7 +7,7 @@ Command line options:
 ```sh
 --input-file: Path to the input video file that will get processed
 --output-file: Path to the output video file that will get created
---audio-flag: Set to 1 to include audio (audio in input video required), default is 0
+--audio-flag: Set to 1 to include audio, default is 0 (audio in input video required)
 ```
 
 ## Installation Instructions (Linux)
