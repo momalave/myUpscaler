@@ -1,4 +1,4 @@
-// CppFlow Model Library
+// CppFlow Library
 
 #include "../include/Model.h"
 
