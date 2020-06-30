@@ -1,6 +1,6 @@
 # Upscaling Model
 
-C++ implementation of a 4x upscaler
+C++ implementation of a 4x upscaler using a pre-trained model. The model was saved using the [SavedModel](https://www.tensorflow.org/guide/saved_model) format.
 
 Command line options:
 
@@ -24,7 +24,7 @@ git clone https://github.com/momalave/myScaler.git
 ```
 
 Then, compile the code using cmake:
-```
+```sh
 cd myScaler/main
 mkdir build
 cd build
@@ -33,8 +33,13 @@ make
 ```
 
 Run the code using the appropiate arguments: 
-```
+```sh
 ./myScaler --input-file /path/to/video/input --output-file /path/to/video/out --audio-flag <optional flag to include audio>
+```
+
+To update the pre-trained model used for inference, replace the model files in:
+```sh
+cd myScaler/main/upScaler_model
 ```
 
 ## CppFlow Library
