@@ -1,6 +1,6 @@
 # Upscaling Model
 
-C++ implementation of a 4x upscaler using a pre-trained model. The model was saved using the [SavedModel](https://www.tensorflow.org/guide/saved_model) format.
+C++ implementation of a deep learning model that upscales RGB images using a factor of 4x (i.e. 270p to 1080p). The model was pre-trained and saved using the [SavedModel](https://www.tensorflow.org/guide/saved_model) format in [Tensorflow](https://www.tensorflow.org/install/pip).
 
 Command line options:
 
