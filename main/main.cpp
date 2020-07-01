@@ -66,14 +66,6 @@ int main(int argc, char* argv[]){
         } else if (arg == "--audio-flag") {
             audioFlag = 1;
             i++;
-            /*
-            if (i + 1 < argc) { // check if at the end of argv
-                audioFlag = atoi(argv[++i]); // increment i to get the next option in argv[i]
-            } else { // no argument in the the option
-                  cerr << "--audio-flag: option requires one argument." << endl;
-                return 1;
-            }
-            */
         } else {
             sources.push_back(argv[i]);
         }
