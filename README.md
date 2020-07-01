@@ -47,22 +47,22 @@ myUpscaler/main/upscaler_model
 ./myUpscaler --input-file /path/to/video/input --output-file /path/to/video/out --model-path <optional, path/to/model/folder, default "../upscaler_model"> --audio-flag <optional flag, default audio processing is off>
 ```
 
-#### Example video files
+#### Example video files:
 [big_buck_bunny.mp4](https://www.dropbox.com/s/9cfcxflggejz6k0/big_buck_bunny.mp4?dl=0)
 
 [toy_story.mp4](https://www.dropbox.com/s/gtphbavjvo0813d/toystory.mp4?dl=0)
 
-#### Example 1 
+#### Example 1: 
 Process big_buck_bunny.mp4, save as upsampled_big_buck_bunny.mp4, and use the default model path "../upscaler_model": 
 ```sh
 ./myUpscaler --input-file big_buck_bunny.mp4 --output-file upsampled_big_buck_bunny.mp4
 ```
-#### Example 2 
+#### Example 2:
 Process big_buck_bunny.mp4, save as upsampled_big_buck_bunny.mp4, and use the model in the "different_model" folder: 
 ```sh
 ./myUpscaler --input-file big_buck_bunny.mp4 --output-file upsampled_big_buck_bunny.mp4 --model-path different_model
 ```
-#### Example 3 
+#### Example 3:
 Process toy_story.mp4, save as upsampled_toy_story.mp4, use the default model path model "../upscaler_model", and include the audio: 
 ```sh
 ./myUpscaler --input-file toy_story.mp4 --output-file upsampled_toy_story.mp4 --audio-flag
