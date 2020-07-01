@@ -54,7 +54,7 @@ myScaler/main/upscaler_model
 ./myScaler --input-file big_buck_bunny.mp4 --output-file upsampled_big_buck_bunny.mp4 --model-path different_model
 ```
 #### Example 3 
-(process toy_story.mp4, save as upsampled_toy_story.mp4, use the default model path model "../upscaler_model)", and include the audio: 
+(process toy_story.mp4, save as upsampled_toy_story.mp4, use the default model path model "../upscaler_model", and include the audio: 
 ```sh
 ./myScaler --input-file toy_story.mp4 --output-file upsampled_toy_story.mp4 --audio-flag
 ```
