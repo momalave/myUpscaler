@@ -33,13 +33,18 @@ cmake ..
 make
 ```
 
+### Pre-trained model included in:
+```sh
+myScaler/main/upscaler_model
+```
+
 ### Run the code using the appropiate arguments:
 ```sh
 ./myScaler --input-file /path/to/video/input --output-file /path/to/video/out --model-path <optional, path/to/model/folder, default "../upscaler_model"> --audio-flag <optional flag, default audio processing off>
 ```
 
 #### Example 1 
-(process big_buck_bunny.mp4, save as upsampled_big_buck_bunny.mp4, and use the default model path model "../upscaler_model): 
+(process big_buck_bunny.mp4, save as upsampled_big_buck_bunny.mp4, and use the default model path model "../upscaler_model"): 
 ```sh
 ./myScaler --input-file big_buck_bunny.mp4 --output-file upsampled_big_buck_bunny.mp4
 ```
@@ -49,14 +54,9 @@ make
 ./myScaler --input-file big_buck_bunny.mp4 --output-file upsampled_big_buck_bunny.mp4 --model-path different_model
 ```
 #### Example 3 
-(process toy_story.mp4, save as upsampled_toy_story.mp4, use the default model path model "../upscaler_model), and include the audio: 
+(process toy_story.mp4, save as upsampled_toy_story.mp4, use the default model path model "../upscaler_model)", and include the audio: 
 ```sh
 ./myScaler --input-file toy_story.mp4 --output-file upsampled_toy_story.mp4 --audio-flag
-```
-
-To update the pre-trained model used for inference, replace the model files in:
-```sh
-myScaler/main/upscaler_model
 ```
 
 ## CppFlow Library
