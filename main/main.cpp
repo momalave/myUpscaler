@@ -131,7 +131,7 @@ int main(int argc, char* argv[]){
     video.open(outputDir, 0x21, fps, Size(scalefactor*frame_width,scalefactor*frame_height), true);
     if (!video.isOpened())
     {
-        cout << "Error creating ouput file, please check path..." << endl;
+        cout << "Error creating output file, please check path..." << endl;
         return -1;
     }
 
