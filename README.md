@@ -21,7 +21,7 @@ The `CMakeLists.txt` file points to the `libtensorflow` folder in the home direc
 
 
 
-Next, git clone the repository (currently, the repository is private. If access is needed, please send a request to momalave@gmail.com):
+Next, git clone the repository (Currently, the repository is private. If access is needed, please send a request to momalave@gmail.com):
 ```sh
 git clone https://github.com/momalave/myUpscaler.git
 ```
