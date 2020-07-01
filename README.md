@@ -11,7 +11,7 @@ Command line options:
 --audio-flag: Flag to process audio (audio stream in input video required), default audio processing is off
 ```
 
-## Installation Instructions (Linux)
+## Installation and Compiling Instructions (Linux)
 
 ### Dependencies:
 
