@@ -64,6 +64,3 @@ Process toy_story.mp4, save as upsampled_toy_story.mp4, use the default model pa
 ```sh
 ./myUpscaler --input-file toy_story.mp4 --output-file upsampled_toy_story.mp4 --audio-flag
 ```
-
-## CppFlow Library
-In this project, the [CppFlow library](https://github.com/serizba/cppflow) was used to load pre-trained models in C/C++. CppFlow enables TensorFlow models to run in C/C++ without Bazel, without a TensorFlow installation, and without compiling Tensorflow.
