@@ -23,12 +23,12 @@ Currently, the repository is private. If access is needed, please send a request
 
 Next, git clone the repository:
 ```sh
-git clone https://github.com/momalave/myScaler.git
+git clone https://github.com/momalave/myUpscaler.git
 ```
 
 Then, compile the code using cmake:
 ```sh
-cd myScaler/main
+cd myUpscaler/main
 mkdir build
 cd build
 cmake ..
