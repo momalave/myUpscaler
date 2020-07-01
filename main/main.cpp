@@ -159,7 +159,7 @@ int main(int argc, char* argv[]){
     
         // Postprocess output of the model
         // Clip from 0 to 255, y = tf.clip_by_value(y, 0, 255), aka clamp operation
-        clip_by_value(processed_image, 0, 255);
+        clipByValue(processed_image, 0, 255);
         // convertTo will Round, y = tf.round(y),  
         // and convert to CV_8U, unsigned 8bit/pixel - ie a pixel can have values 0-255, y = tf.cast(y, tf.uint8)   
         processed_image.convertTo(processed_image, CV_8U);   
