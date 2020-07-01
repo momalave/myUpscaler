@@ -8,7 +8,7 @@ using namespace cv;
 using namespace std;
 
 // Clamp values to a give lower and upper bound
-void clip_by_value(Mat& mat, float lowerBound, float upperBound){ 
+void clipByValue(Mat& mat, float lowerBound, float upperBound){ 
     vector<Mat> matc;
     split(mat, matc);
     min(max(matc[0], lowerBound), upperBound, matc[0]);
