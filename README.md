@@ -33,6 +33,8 @@ cmake ..
 make
 ```
 
+## Run Instructions (Linux)
+
 ### Pre-trained model included in:
 ```sh
 myScaler/main/upscaler_model
