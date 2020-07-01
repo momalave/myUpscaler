@@ -2,6 +2,7 @@
 
 #include <opencv2/opencv.hpp>
 #include <iostream>
+#include <sys/stat.h>
 
 using namespace cv;
 using namespace std;
@@ -34,6 +35,7 @@ void drawStatus(int curFrame, int numFrames, float dur){
 
 // Add audio to upsampled video
 void processAudio(string inputDir, string outputDir){ 
+    struct stat buffer;
     size_t extPos = outputDir.find_last_of(".");
     string tempDir = outputDir.substr(0,extPos) + "_temp.mp4";
     tempDir = tempDir.substr(extPos);
@@ -41,8 +43,13 @@ void processAudio(string inputDir, string outputDir){
     //add audio using ffmpeg library
     system(("ffmpeg -y -i " + inputDir + " -i " + outputDir + 
             " -c copy -map 0:a:0 -map 1:v:0 -shortest -c copy -flags global_header -loglevel fatal " + tempDir).c_str());
-        
-    // replace output upsampled video with output of ffmpeg
-    system(("rm " + outputDir).c_str());
-    system(("mv " + tempDir + " " + outputDir).c_str());
+    
+    // replace output upsampled video with output of ffmpeg if tempDir is created
+    if (stat(tempDir.c_str(), &buffer) == 0){
+        system(("rm " + outputDir).c_str());
+        system(("mv " + tempDir + " " + outputDir).c_str());
+    }
+    else{
+        cout << "Audio stream cannot be processed, video saved without audio..." << endl;
+    }
 }
