@@ -8,7 +8,7 @@ Command line options:
 --input-file: Path to the input video file that will get processed
 --output-file: Path to the output video file that will get created
 --model-path: Path to the pre-trained model, default path is "../upscaler_model"
---audio-flag: Set to 1 to include audio, default is 0 (audio in input video required)
+--audio-flag: Include flag to process audio (audio stream in input video required)
 ```
 
 ## Installation Instructions (Linux)
