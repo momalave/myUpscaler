@@ -21,7 +21,7 @@ static void show_usage(std::string name){
               << "\t--input-file   \tPath to the input video file that will get processed\n"
               << "\t--output-file  \tPath to the output video file that will get created\n"
               << "\t--model-path   \tPath to the pre-trained model, default path is \"../upscaler_model\"\n"
-              << "\t--audio-flag   \tSet to 1 to include audio, default is 0 (audio in input video required)\n"
+              << "\t--audio-flag   \tSet to 1 to include audio (audio stream in input video required), default is 0\n"
               << std::endl;
 }
 
