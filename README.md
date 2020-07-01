@@ -7,6 +7,7 @@ Command line options:
 ```sh
 --input-file: Path to the input video file that will get processed
 --output-file: Path to the output video file that will get created
+--model-path: Path to the pre-trained model, default path is "../upscaler_model"
 --audio-flag: Set to 1 to include audio, default is 0 (audio in input video required)
 ```
 
@@ -34,7 +35,7 @@ make
 
 Run the code using the appropiate arguments: 
 ```sh
-./myScaler --input-file /path/to/video/input --output-file /path/to/video/out --audio-flag <optional flag to include audio>
+./myScaler --input-file /path/to/video/input --output-file /path/to/video/out --model-path <optional flag to model folder, default path is "../upscaler_model"> --audio-flag <optional flag to include audio, default 0>
 ```
 
 To update the pre-trained model used for inference, replace the model files in:
