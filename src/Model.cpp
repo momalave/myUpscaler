@@ -1,4 +1,7 @@
-// CppFlow Library
+// CppFlow Library (https://github.com/serizba/cppflow)
+//
+// Created by sergio on 12/05/19.
+//
 
 #include "../include/Model.h"
 
