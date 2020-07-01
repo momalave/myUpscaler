@@ -50,6 +50,6 @@ void processAudio(string inputDir, string outputDir){
         system(("mv " + tempDir + " " + outputDir).c_str());
     }
     else{
-        cout << "Audio stream cannot be processed, video saved without audio..." << endl;
+        cout << "Audio stream cannot be processed, video saved without audio. Please check that input video contains audio..." << endl;
     }
 }

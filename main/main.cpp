@@ -21,7 +21,7 @@ static void show_usage(std::string name){
               << "\t--input-file   \tPath to the input video file that will get processed\n"
               << "\t--output-file  \tPath to the output video file that will get created\n"
               << "\t--model-path   \tPath to the pre-trained model, default path is \"../upscaler_model\"\n"
-              << "\t--audio-flag   \tSet to 1 to include audio (audio stream in input video required), default is 0\n"
+              << "\t--audio-flag   \tInclude flag to process audio (audio stream in input video required)\n"
               << std::endl;
 }
 
@@ -64,12 +64,16 @@ int main(int argc, char* argv[]){
                 return 1;
             }
         } else if (arg == "--audio-flag") {
+            audioFlag = 1;
+            i++;
+            /*
             if (i + 1 < argc) { // check if at the end of argv
                 audioFlag = atoi(argv[++i]); // increment i to get the next option in argv[i]
             } else { // no argument in the the option
                   cerr << "--audio-flag: option requires one argument." << endl;
                 return 1;
             }
+            */
         } else {
             sources.push_back(argv[i]);
         }
@@ -92,7 +96,7 @@ int main(int argc, char* argv[]){
     VideoCapture cap(inputDir);
     // Check if file opened successfully
     if(!cap.isOpened()){
-        cout << "Error opening file" << endl;
+        cout << "Error opening input file, please check path..." << endl;
         return -1;
     }
   
@@ -101,13 +105,18 @@ int main(int argc, char* argv[]){
     double fps = cap.get(CAP_PROP_FPS);  
     int frame_width = cap.get(CAP_PROP_FRAME_WIDTH);
     int frame_height = cap.get(CAP_PROP_FRAME_HEIGHT);
-    //numFrames = fps; //used for processing 1 second
+    numFrames = fps; //used for processing 1 second
 
     // Create a VideoWriter object for 4x upSampler output
     VideoWriter video;
     //Use the AV_CODEC_ID_H264 , 0x21 to save using H.264
     //Source: https://stackoverflow.com/questions/34024041/writing-x264-from-opencv-3-with-ffmpeg-on-linux
     video.open(outputDir, 0x21, fps, Size(scalefactor*frame_width,scalefactor*frame_height), true);
+    if (!video.isOpened())
+    {
+        cout << "Error creating ouput file, please check path..." << endl;
+        return -1;
+    }
 
     cout << "Processing Video Frames..." << endl ;  
     // Capture the first frame
@@ -171,7 +180,10 @@ int main(int argc, char* argv[]){
         cap >> image;
     
         // Exit if current frame is the last
-        if (curFrame == numFrames) {break;}
+        if (curFrame == numFrames) {
+            cout << "\n";
+            break;
+        }
     }
     
     // Release the videocapture and videowriter objects
@@ -180,7 +192,7 @@ int main(int argc, char* argv[]){
     
     // if audioFlag == 1, add audio to upscaled video
     if(audioFlag){
-        cout << "\n\nProcessing audio..." << endl;
+        cout << "\nProcessing audio..." << endl;
         processAudio(inputDir, outputDir);
     }
     
