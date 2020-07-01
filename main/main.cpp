@@ -20,6 +20,7 @@ static void show_usage(std::string name){
               << "\t-h,--help      \tUsage information\n"
               << "\t--input-file   \tPath to the input video file that will get processed\n"
               << "\t--output-file  \tPath to the output video file that will get created\n"
+              << "\t--model-path   \tPath to the pre-trained model, default path is \"../upscaler_model\"\n"
               << "\t--audio-flag   \tSet to 1 to include audio, default is 0 (audio in input video required)\n"
               << std::endl;
 }
@@ -33,6 +34,7 @@ int main(int argc, char* argv[]){
     
     vector <string> sources;
     string inputDir, outputDir;
+    string modelPath = "../upscaler_model";
     int audioFlag = 0;
     
     for (int i = 1; i < argc; ++i) {
@@ -41,24 +43,31 @@ int main(int argc, char* argv[]){
             show_usage(argv[0]);
             return 0;
         } else if (arg == "--input-file") {
-            if (i + 1 < argc) { // Make sure we aren't at the end of argv!
-                inputDir = argv[++i]; // Increment 'i' so we don't get the argument as the next argv[i].
-            } else { // Uh-oh, there was no argument to the destination option.
+            if (i + 1 < argc) { // check if at the end of argv
+                inputDir = argv[++i]; // increment i to get the next option in argv[i]
+            } else { // no argument in the the option
                   cerr << "--input-file option requires one argument." << endl;
                 return 1;
             }
         } else if (arg == "--output-file") {
-            if (i + 1 < argc) { // Make sure we aren't at the end of argv!
-                outputDir = argv[++i]; // Increment 'i' so we don't get the argument as the next argv[i].
-            } else { // Uh-oh, there was no argument to the destination option.
+            if (i + 1 < argc) { // check if at the end of argv
+                outputDir = argv[++i]; // increment i to get the next option in argv[i]
+            } else { // no argument in the the option
                   cerr << "--output-file: option requires one argument." << endl;
                 return 1;
             }
+        } else if (arg == "--model-path") {
+            if (i + 1 < argc) { // check if at the end of argv
+                modelPath = argv[++i]; // increment i to get the next option in argv[i]
+            } else { // no argument in the the option
+                  cerr << "--model-path: option requires one argument." << endl;
+                return 1;
+            }
         } else if (arg == "--audio-flag") {
-            if (i + 1 < argc) { // Make sure we aren't at the end of argv!
-                audioFlag = atoi(argv[++i]); // Increment 'i' so we don't get the argument as the next argv[i].
-            } else { // Uh-oh, there was no argument to the destination option.
-                  cerr << "--output-file: option requires one argument." << endl;
+            if (i + 1 < argc) { // check if at the end of argv
+                audioFlag = atoi(argv[++i]); // increment i to get the next option in argv[i]
+            } else { // no argument in the the option
+                  cerr << "--audio-flag: option requires one argument." << endl;
                 return 1;
             }
         } else {
@@ -74,7 +83,7 @@ int main(int argc, char* argv[]){
     float dur = 0.0, sumTime = 0.0, sumSqTime = 0.0;
 
     // Initialize Model  
-    Model m("../upscaler_model");
+    Model m(modelPath);
     // Input and output Tensors
     Tensor input(m, "serving_default_input_5");
     Tensor prediction(m, "StatefulPartitionedCall");
