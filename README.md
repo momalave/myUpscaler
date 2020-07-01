@@ -14,7 +14,6 @@ Command line options:
 ## Installation and Compiling Instructions (Linux)
 
 ### Dependencies:
-
 Download TensorFlow C API [here](https://www.tensorflow.org/install/lang_c). Install the library system wide by following the tutorial on the Tensorflow page or place the contents of the archive in the home directory in a folder called `libtensorflow`. 
 
 The `CMakeLists.txt` file points to the `libtensorflow` folder in the home directory. Additionally, install [Tensorflow 2.2](https://www.tensorflow.org/install/pip), [OpenCV 4.4](https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html), and [FFmpeg](https://ffmpeg.org/download.html) for video/audio processing.
@@ -46,21 +45,20 @@ myUpscaler/main/upscaler_model
 ```
 
 #### Example 1 
-(process big_buck_bunny.mp4, save as upsampled_big_buck_bunny.mp4, and use the default model path "../upscaler_model"): 
+Process big_buck_bunny.mp4, save as upsampled_big_buck_bunny.mp4, and use the default model path "../upscaler_model": 
 ```sh
 ./myUpscaler --input-file big_buck_bunny.mp4 --output-file upsampled_big_buck_bunny.mp4
 ```
 #### Example 2 
-(process big_buck_bunny.mp4, save as upsampled_big_buck_bunny.mp4, and use the model in the "different_model" folder): 
+Process big_buck_bunny.mp4, save as upsampled_big_buck_bunny.mp4, and use the model in the "different_model" folder: 
 ```sh
 ./myUpscaler --input-file big_buck_bunny.mp4 --output-file upsampled_big_buck_bunny.mp4 --model-path different_model
 ```
 #### Example 3 
-(process toy_story.mp4, save as upsampled_toy_story.mp4, use the default model path model "../upscaler_model", and include the audio: 
+Process toy_story.mp4, save as upsampled_toy_story.mp4, use the default model path model "../upscaler_model", and include the audio: 
 ```sh
 ./myUpscaler --input-file toy_story.mp4 --output-file upsampled_toy_story.mp4 --audio-flag
 ```
 
 ## CppFlow Library
-
 In this project, the [CppFlow library](https://github.com/serizba/cppflow) was used to load pre-trained models in C/C++. CppFlow enables TensorFlow models to run in C/C++ without Bazel, without a TensorFlow installation, and without compiling Tensorflow.
