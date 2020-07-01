@@ -8,7 +8,7 @@ Command line options:
 --input-file: Path to the input video file that will get processed
 --output-file: Path to the output video file that will get created
 --model-path: Path to the pre-trained model, default path is "../upscaler_model"
---audio-flag: Include flag to process audio (audio stream in input video required)
+--audio-flag: Flag to process audio (audio stream in input video required)
 ```
 
 ## Installation Instructions (Linux)
@@ -35,7 +35,20 @@ make
 
 Run the code using the appropiate arguments: 
 ```sh
-./myScaler --input-file /path/to/video/input --output-file /path/to/video/out --model-path <optional flag to model folder, default path is "../upscaler_model"> --audio-flag <optional flag to include audio, default 0>
+./myScaler --input-file /path/to/video/input --output-file /path/to/video/out --model-path <optional, path/to/model/folder, default "../upscaler_model"> --audio-flag <optional flag, default audio processing off>
+```
+
+Example 1 (process big_buck_bunny.mp4, save as upsampled_big_buck_bunny.mp4, and use the default model path model "../upscaler_model): 
+```sh
+./myScaler --input-file big_buck_bunny.mp4 --output-file upsampled_big_buck_bunny.mp4
+```
+Example 2 (process big_buck_bunny.mp4 and save as upsampled_big_buck_bunny.mp4 using the model in the "different_model" folder): 
+```sh
+./myScaler --input-file big_buck_bunny.mp4 --output-file upsampled_big_buck_bunny.mp4 --model-path different_model
+```
+Example 3 (process toy_story.mp4, save as upsampled_toy_story.mp4, use the default model path model "../upscaler_model), and include the audio: 
+```sh
+./myScaler --input-file toy_story.mp4 --output-file upsampled_toy_story.mp4 --audio-flag
 ```
 
 To update the pre-trained model used for inference, replace the model files in:
