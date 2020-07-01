@@ -19,7 +19,7 @@ To load pre-trained models in C++, the [CppFlow library](https://github.com/seri
 CppFlow requires the TensorFlow C API. Download the appropriate (i.e., Linux CPU only or Linux CPU/GPU support) TensorFlow C API [here](https://www.tensorflow.org/install/lang_c). Then, put the contents of the archive in the home directory in a folder called `libtensorflow` (or install the library system wide by following the tutorial on the TensorFlow page). The `myUpscaler/main/CMakeLists.txt` file searches for the `libtensorflow` folder in the home directory. Additionally, install the appropriate [TensorFlow 2.2](https://www.tensorflow.org/install/pip), [CUDA 11.0](https://developer.nvidia.com/cuda-downloads), [cuDNN 7.5](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html), [OpenCV 4.4](https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html), and [FFmpeg](https://ffmpeg.org/download.html) for video/audio processing.
 
 For development, an Amazon Web Services (AWS) instance was used with a [Deep Learning Amazon Machine Image (DLAMI) (Ubuntu 16.04/18.04) Version 30.0](
-https://docs.aws.amazon.com/dlami/latest/devguide/what-is-dlami.html). This comes preconfigured with many of the dependencies (i.e., TensorFlow, OpenCV, FFmpeg, CUDA, and cuDNN) and makes setting up your environments substantially easier.
+https://docs.aws.amazon.com/dlami/latest/devguide/what-is-dlami.html). This comes preconfigured with many of the dependencies (i.e., TensorFlow, OpenCV, FFmpeg, CUDA, and cuDNN) and makes setting up the environments substantially easier.
 
 Next, git clone the repository (Currently, the repository is private. If access is needed, please send a request to momalave@gmail.com):
 ```sh
