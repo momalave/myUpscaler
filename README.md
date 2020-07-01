@@ -49,7 +49,7 @@ myScaler/main/upscaler_model
 ./myScaler --input-file big_buck_bunny.mp4 --output-file upsampled_big_buck_bunny.mp4
 ```
 #### Example 2 
-(process big_buck_bunny.mp4 and save as upsampled_big_buck_bunny.mp4 using the model in the "different_model" folder): 
+(process big_buck_bunny.mp4, save as upsampled_big_buck_bunny.mp4 using the model in the "different_model" folder): 
 ```sh
 ./myScaler --input-file big_buck_bunny.mp4 --output-file upsampled_big_buck_bunny.mp4 --model-path different_model
 ```
