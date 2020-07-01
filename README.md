@@ -38,7 +38,7 @@ make
 myScaler/main/upscaler_model
 ```
 
-### Run the code using the appropiate arguments:
+### Run using the appropiate arguments:
 ```sh
 ./myScaler --input-file /path/to/video/input --output-file /path/to/video/out --model-path <optional, path/to/model/folder, default "../upscaler_model"> --audio-flag <optional flag, default audio processing off>
 ```
