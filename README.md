@@ -47,7 +47,7 @@ myUpscaler/main/upscaler_model
 ./myUpscaler --input-file /path/to/video/input --output-file /path/to/video/out --model-path <optional, path/to/model/folder, default "../upscaler_model"> --audio-flag <optional flag, default audio processing is off>
 ```
 
-#### Example vidoe files
+#### Example video files
 [big_buck_bunny.mp4](https://www.dropbox.com/s/9cfcxflggejz6k0/big_buck_bunny.mp4?dl=0)
 
 [toy_story.mp4](https://www.dropbox.com/s/gtphbavjvo0813d/toystory.mp4?dl=0)
