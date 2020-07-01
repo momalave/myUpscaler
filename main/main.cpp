@@ -14,7 +14,7 @@ using namespace std;
 
 
 // Argument information
-static void show_usage(std::string name){   
+static void show_usage(string name){   
     std::cerr << "Usage: " << name << " <option(s)> argument(s)\n"
               << "Options:\n"
               << "\t-h,--help      \tUsage information\n"
@@ -25,6 +25,11 @@ static void show_usage(std::string name){
               << std::endl;
 }
 
+static int checkArgs(string args){
+    string options = "--input-file--output-file--model-path--audio-flag-h--help";
+    return (options.find(args) != std::string::npos) ? 1 : 0;
+}
+
 int main(int argc, char* argv[]){
     //Argument handling
     if (argc < 3) {
@@ -32,42 +37,62 @@ int main(int argc, char* argv[]){
         return 1;
     }
     
-    vector <string> sources;
-    string inputDir, outputDir;
+    string inputDir, outputDir, arg;
     string modelPath = "../upscaler_model";
     int audioFlag = 0;
     
     for (int i = 1; i < argc; ++i) {
-        std::string arg = argv[i];
+        arg = argv[i];
         if ((arg == "-h") || (arg == "--help")) {
             show_usage(argv[0]);
             return 0;
         } else if (arg == "--input-file") {
             if (i + 1 < argc) { // check if at the end of argv
                 inputDir = argv[++i]; // increment i to get the next option in argv[i]
-            } else { // no argument in the the option
+            } else {
+                cerr << "--input-file: option requires one argument." << endl;
+                return 1;
+            }
+ 
+            if (checkArgs(inputDir)){ // no argument in the the option
                   cerr << "--input-file option requires one argument." << endl;
                 return 1;
             }
         } else if (arg == "--output-file") {
             if (i + 1 < argc) { // check if at the end of argv
                 outputDir = argv[++i]; // increment i to get the next option in argv[i]
-            } else { // no argument in the the option
+            } else {
+                cerr << "--output-file: option requires one argument." << endl;
+                return 1;
+            }
+            
+            if (checkArgs(outputDir)) { // no argument in the the option
                   cerr << "--output-file: option requires one argument." << endl;
                 return 1;
             }
         } else if (arg == "--model-path") {
             if (i + 1 < argc) { // check if at the end of argv
                 modelPath = argv[++i]; // increment i to get the next option in argv[i]
-            } else { // no argument in the the option
+            } else {
+                cerr << "--model-path: option requires one argument." << endl;
+                return 1;
+            }
+            
+            if (checkArgs(modelPath)){ // no argument in the the option
                   cerr << "--model-path: option requires one argument." << endl;
                 return 1;
             }
         } else if (arg == "--audio-flag") {
-            audioFlag = 1;
-            i++;
+            if ((i + 1 < argc) && !checkArgs(argv[i+1])){ // an argument was placed after --audio-flag, at the end 
+                cerr << arg << ": does not take arguments, please follow the usage format:" << endl;
+                show_usage(argv[0]);
+                return 1;
+            } 
+            audioFlag = 1;  
         } else {
-            sources.push_back(argv[i]);
+            cerr << argv[i] << " is not a valid option/argument, please follow the usage format:" << endl;
+            show_usage(argv[0]);
+            return 1;
         }
     }
     
