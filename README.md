@@ -44,7 +44,7 @@ myScaler/main/upscaler_model
 ```
 
 #### Example 1 
-(process big_buck_bunny.mp4, save as upsampled_big_buck_bunny.mp4, and use the default model path model "../upscaler_model"): 
+(process big_buck_bunny.mp4, save as upsampled_big_buck_bunny.mp4, and use the default model path "../upscaler_model"): 
 ```sh
 ./myScaler --input-file big_buck_bunny.mp4 --output-file upsampled_big_buck_bunny.mp4
 ```
