@@ -14,7 +14,9 @@ Command line options:
 ## Installation and Compiling Instructions (Linux)
 
 ### Dependencies:
-Download TensorFlow C API [here](https://www.tensorflow.org/install/lang_c). Install the library system wide by following the tutorial on the Tensorflow page or place the contents of the archive in the home directory in a folder called `libtensorflow`. The `CMakeLists.txt` file points to the `libtensorflow` folder in the home directory. 
+To load pre-trained models in C++, the [CppFlow library](https://github.com/serizba/cppflow) was used. CppFlow enables TensorFlow models to run in C/C++ without Bazel, without a TensorFlow installation, and without compiling Tensorflow.
+
+CppFlow requires the TensorFlow C API. Download the TensorFlow C API [here](https://www.tensorflow.org/install/lang_c). Install the library system wide by following the tutorial on the Tensorflow page or place the contents of the archive in the home directory in a folder called `libtensorflow`. The `CMakeLists.txt` file points to the `libtensorflow` folder in the home directory. 
 
 Additionally, install [Tensorflow 2.2](https://www.tensorflow.org/install/pip), [CUDA 11.0](https://developer.nvidia.com/cuda-downloads), [cuDNN 7.5](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html), [OpenCV 4.4](https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html), and [FFmpeg](https://ffmpeg.org/download.html) for video/audio processing.
 
