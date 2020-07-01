@@ -61,7 +61,7 @@ Model::Model(const std::string& model_path, const std::vector<uint8_t>& config_o
     } 
     else if (ec) // Check file errors
     {
-        std::cerr << "Error in is_regular_file, check model path: \n" << ec.message();
+        std::cerr << "Error in is_regular_file, please check model path: \n" << ec.message();
         TF_DeleteSessionOptions(sess_opts);
         exit(-1);
     } 
