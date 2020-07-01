@@ -37,7 +37,7 @@ cmake ..
 make
 ```
 
-## Running Instructions (Linux)
+## Execution Instructions (Linux)
 
 ### Pre-trained model included in:
 ```sh
