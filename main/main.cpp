@@ -122,6 +122,7 @@ int main(int argc, char* argv[]){
     double fps = cap.get(CAP_PROP_FPS);  
     int frame_width = cap.get(CAP_PROP_FRAME_WIDTH);
     int frame_height = cap.get(CAP_PROP_FRAME_HEIGHT);
+    //int ex = static_cast<int>(cap.get(CAP_PROP_FOURCC));     // Get Codec Type- Int form
     //numFrames = fps; //used for processing 1 second
 
     // Create a VideoWriter object for 4x upSampler output
@@ -129,6 +130,8 @@ int main(int argc, char* argv[]){
     //Use the AV_CODEC_ID_H264 , 0x21 to save using H.264
     //Source: https://stackoverflow.com/questions/34024041/writing-x264-from-opencv-3-with-ffmpeg-on-linux
     video.open(outputDir, 0x21, fps, Size(scalefactor*frame_width,scalefactor*frame_height), true);
+    //Source 2: https://docs.opencv.org/2.4/doc/tutorials/highgui/video-write/video-write.html
+    //video.open(outputDir, ex=-1, fps, Size(scalefactor*frame_width,scalefactor*frame_height), true);
     if (!video.isOpened())
     {
         cout << "Error creating output file, please check path..." << endl;
@@ -180,8 +183,8 @@ int main(int argc, char* argv[]){
         // Get tensor with predictions    
         predictions = prediction.Tensor::get_data<float>();
         // Unflatten processed_image
-        processed_image = Mat(scalefactor*rows, scalefactor*cols, image.type(), predictions.data());    
-    
+        processed_image = Mat(scalefactor*rows, scalefactor*cols, image.type(), predictions.data());
+        
         // Postprocess output of the model
         // Clip from 0 to 255, y = tf.clip_by_value(y, 0, 255), aka clamp operation
         clipByValue(processed_image, 0, 255);
