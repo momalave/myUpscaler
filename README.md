@@ -21,7 +21,7 @@ CppFlow requires the TensorFlow C API. Download the appropriate (i.e., Linux CPU
 For development, an Amazon Web Services (AWS) instance was used with a [Deep Learning Amazon Machine Image (DLAMI) (Ubuntu 16.04/18.04) Version 30.0](
 https://docs.aws.amazon.com/dlami/latest/devguide/what-is-dlami.html). This comes preconfigured with many of the dependencies (i.e., TensorFlow, OpenCV, FFmpeg, CUDA, and cuDNN) and makes setting up the environment substantially easier.
 
-Next, git clone the repository (Currently, the repository is private. If access is needed, please send a request to momalave@gmail.com):
+Next, git clone the repository:
 ```sh
 git clone https://github.com/momalave/myUpscaler.git
 ```
